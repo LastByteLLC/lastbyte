@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Last Byte LLC</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0a;
+      --fg: #e8e4de;
+      --fg-dim: #706b63;
+      --accent: #c8ff3e;
+      --serif: 'Instrument Serif', Georgia, serif;
+      --mono: 'DM Mono', 'SF Mono', monospace;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--mono);
+      font-weight: 300;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .code {
+      font-family: var(--serif);
+      font-size: clamp(4rem, 12vw, 8rem);
+      line-height: 1;
+      color: var(--accent);
+    }
+
+    .message {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--fg-dim);
+    }
+
+    .home {
+      display: inline-block;
+      margin-top: 2rem;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid rgba(200, 255, 62, 0.3);
+      padding: 0.6rem 1.5rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .home:hover {
+      background: rgba(200, 255, 62, 0.08);
+      border-color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="code">404</div>
+    <p class="message">Nothing here. The last byte was somewhere else.</p>
+    <a href="/" class="home">Back to home</a>
+  </div>
+</body>
+</html>

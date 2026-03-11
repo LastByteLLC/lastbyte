@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Last Byte LLC</title>
+  <meta name="description" content="Last Byte LLC — Software, apps, and digital products.">
+  <meta property="og:title" content="Last Byte LLC">
+  <meta property="og:description" content="Building software and digital products used by millions — grounded in privacy, security, and responsible innovation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://last-byte.org">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Last Byte LLC">
+  <meta name="twitter:description" content="Building software and digital products used by millions — grounded in privacy, security, and responsible innovation.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0a;
+      --fg: #e8e4de;
+      --fg-dim: #706b63;
+      --accent: #c8ff3e;
+      --accent-dim: rgba(200, 255, 62, 0.08);
+      --border: #1e1e1e;
+      --serif: 'Instrument Serif', Georgia, serif;
+      --mono: 'DM Mono', 'SF Mono', monospace;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--mono);
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Grain overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header */
+    header {
+      padding: 3rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: var(--fg);
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .logo-tag {
+      font-size: 0.75rem;
+      color: var(--fg-dim);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 5rem 0 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero p {
+      font-family: var(--serif);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      line-height: 1.5;
+      color: var(--fg);
+      max-width: 680px;
+      font-style: italic;
+    }
+
+    .hero p strong {
+      font-style: normal;
+      color: var(--accent);
+      font-weight: 400;
+    }
+
+    .hero-subtitle {
+      font-family: var(--mono) !important;
+      font-style: normal !important;
+      font-size: 0.9rem !important;
+      color: var(--fg-dim);
+      margin-top: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .hero-subtitle a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(200, 255, 62, 0.3);
+      transition: border-color 0.2s;
+    }
+
+    .hero-subtitle a:hover {
+      border-color: var(--accent);
+    }
+
+    /* Projects grid */
+    .projects {
+      padding: 2.5rem 0 0;
+    }
+
+    .projects:first-of-type {
+      padding-top: 4rem;
+    }
+
+    .projects:last-of-type {
+      padding-bottom: 4rem;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--fg-dim);
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .project-list {
+      display: grid;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .project-favicon {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    .project-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 0 1rem;
+      padding: 1.5rem 2rem;
+      background: var(--bg);
+      text-decoration: none;
+      color: var(--fg);
+      transition: background 0.3s ease, padding-left 0.3s ease;
+      position: relative;
+    }
+
+    .project-item:hover {
+      background: var(--accent-dim);
+      padding-left: 2.5rem;
+    }
+
+    .project-item:hover .project-name {
+      color: var(--accent);
+    }
+
+    .project-item:hover .project-arrow {
+      opacity: 1;
+      transform: translateX(0);
+      color: var(--accent);
+    }
+
+    .project-name {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .project-desc {
+      font-size: 0.8rem;
+      color: var(--fg-dim);
+      margin-top: 0.25rem;
+      letter-spacing: 0.02em;
+    }
+
+    .project-arrow {
+      font-size: 1.2rem;
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: all 0.3s ease;
+      color: var(--fg-dim);
+    }
+
+    /* Cursor blink */
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background: var(--accent);
+      margin-left: 4px;
+      vertical-align: text-bottom;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-left {
+      font-size: 0.75rem;
+      color: var(--fg-dim);
+    }
+
+    .footer-right {
+      font-size: 0.75rem;
+      color: var(--fg-dim);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-right a {
+      color: var(--fg-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-right a:hover {
+      color: var(--accent);
+    }
+
+    /* Entry animations */
+    .animate-in {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.7s ease forwards;
+    }
+
+    .animate-in:nth-child(1) { animation-delay: 0.1s; }
+    .animate-in:nth-child(2) { animation-delay: 0.2s; }
+    .animate-in:nth-child(3) { animation-delay: 0.3s; }
+    .animate-in:nth-child(4) { animation-delay: 0.35s; }
+    .animate-in:nth-child(5) { animation-delay: 0.4s; }
+    .animate-in:nth-child(6) { animation-delay: 0.45s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .container { padding: 0 1.25rem; }
+      header { padding: 2rem 0 1.5rem; }
+      .hero { padding: 3rem 0 2.5rem; }
+      .projects { padding: 2.5rem 0; }
+      .project-item { padding: 1.25rem 1.5rem; }
+      .project-item:hover { padding-left: 1.75rem; }
+      footer { padding: 2rem 0; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="animate-in">
+      <div class="logo-row">
+        <h1 class="logo">Last Byte<span>.</span></h1>
+        <span class="logo-tag">LLC</span>
+      </div>
+    </header>
+
+    <section class="hero animate-in">
+      <p>Building <strong>software</strong> and <strong>digital products</strong> used by millions — grounded in privacy, security, and <strong>responsible innovation</strong><span class="cursor"></span></p>
+      <p class="hero-subtitle">If you have an idea you're passionate about, we'd love to talk. Please send an email to <a href="mailto:hello@last-byte.org">hello@last-byte.org</a></p>
+    </section>
+
+    <section class="projects">
+      <div class="section-label animate-in">Products</div>
+      <div class="project-list">
+        <a href="https://podlp.com" target="_blank" rel="noopener" class="project-item animate-in">
+          <img src="https://www.google.com/s2/favicons?domain=podlp.com&sz=64" alt="" class="project-favicon">
+          <div>
+            <div class="project-name">PodLP</div>
+            <div class="project-desc">The leading podcast app for flip phones with 10M+ installs in 175+ countries</div>
+          </div>
+          <div class="project-arrow">&rarr;</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="projects">
+      <div class="section-label animate-in">Projects</div>
+      <div class="project-list">
+        <a href="https://kaios.dev" target="_blank" rel="noopener" class="project-item animate-in">
+          <img src="https://www.google.com/s2/favicons?domain=kaios.dev&sz=64" alt="" class="project-favicon">
+          <div>
+            <div class="project-name">KaiOS.dev</div>
+            <div class="project-desc">Resources for KaiOS developers featuring articles, stories, code snippets, and more</div>
+          </div>
+          <div class="project-arrow">&rarr;</div>
+        </a>
+        <a href="https://kaios.app" target="_blank" rel="noopener" class="project-item animate-in">
+          <img src="https://www.google.com/s2/favicons?domain=kaios.app&sz=64" alt="" class="project-favicon">
+          <div>
+            <div class="project-name">KaiOS.app</div>
+            <div class="project-desc">Directory and landing pages for KaiOS apps across the JioStore and KaiStore</div>
+          </div>
+          <div class="project-arrow">&rarr;</div>
+        </a>
+        <a href="https://yoto.fm" target="_blank" rel="noopener" class="project-item animate-in">
+          <img src="https://www.google.com/s2/favicons?domain=yoto.fm&sz=64" alt="" class="project-favicon">
+          <div>
+            <div class="project-name">Yoto.fm</div>
+            <div class="project-desc">Kids screen-free entertainment projects like Backyard Birds and Fez the Cat</div>
+          </div>
+          <div class="project-arrow">&rarr;</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="projects">
+      <div class="section-label animate-in">Personal</div>
+      <div class="project-list">
+        <a href="https://barrasso.me" target="_blank" rel="noopener" class="project-item animate-in">
+          <img src="https://www.google.com/s2/favicons?domain=barrasso.me&sz=64" alt="" class="project-favicon">
+          <div>
+            <div class="project-name">Barrasso.me</div>
+            <div class="project-desc">Personal blog &amp; writing</div>
+          </div>
+          <div class="project-arrow">&rarr;</div>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-left">&copy; 2020&ndash;2026 Last Byte LLC</div>
+      <div class="footer-right">
+        <a href="mailto:hello@last-byte.org">hello@last-byte.org</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
