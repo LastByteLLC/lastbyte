@@ -21,4 +21,4 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          command: pages deploy . --project-name=${{ vars.CLOUDFLARE_PROJECT_NAME }} --branch=main --commit-dirty
+          command: pages deploy . --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --branch=main --commit-dirty
