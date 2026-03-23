@@ -1,7 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="4" fill="#0a0a0a"/>
-  <line x1="16" y1="4" x2="16" y2="28" stroke="#1e1e1e" stroke-width="1"/>
-  <text x="8" y="10" font-family="monospace" font-size="14" fill="#e8e4de" text-anchor="middle" dominant-baseline="central">0</text>
-  <text x="8" y="22" font-family="monospace" font-size="14" fill="#c8ff3e" text-anchor="middle" dominant-baseline="central">1</text>
-  <text x="24" y="14" font-family="monospace" font-size="22" fill="#c8ff3e" text-anchor="middle" dominant-baseline="central">|</text>
-</svg>
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect fill="#0a0a0a" height="32" rx="4" width="32"/><path d="m16 4v24" stroke="#1e1e1e"/><g font-family="monospace" text-anchor="middle"><text dominant-baseline="central" fill="#e8e4de" font-size="14" x="8" y="10">0</text><text dominant-baseline="central" fill="#c8ff3e" font-size="14" x="8" y="22">1</text><text dominant-baseline="central" fill="#c8ff3e" font-size="22" x="24" y="14">|</text></g></svg>
